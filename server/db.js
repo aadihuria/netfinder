@@ -4,7 +4,11 @@ import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const COURTS_SRC = join(__dirname, '../data/courts.json');
-const DB_PATH = join(__dirname, 'db.json');
+// In production, write to /data (Railway persistent volume mount point).
+// Locally, write next to this file so nothing touches the repo root.
+const DB_PATH = process.env.NODE_ENV === 'production'
+  ? '/data/db.json'
+  : join(__dirname, 'db.json');
 
 let state = { courts: [], submissions: [], users: [], checkins: [] };
 
