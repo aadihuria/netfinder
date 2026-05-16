@@ -1,19 +1,49 @@
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const COURTS_SRC = join(__dirname, '../data/courts.json');
-// In production, write to /data (Railway persistent volume mount point).
-// Locally, write next to this file so nothing touches the repo root.
-const DB_PATH = process.env.NODE_ENV === 'production'
-  ? '/data/db.json'
-  : join(__dirname, 'db.json');
+const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL;
+const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
 
 let state = { courts: [], submissions: [], users: [], checkins: [] };
 
+// ── Upstash Redis helpers ──
+async function redisGet(key) {
+  if (!REDIS_URL) return null;
+  try {
+    const r = await fetch(`${REDIS_URL}/get/${key}`, {
+      headers: { Authorization: `Bearer ${REDIS_TOKEN}` },
+    });
+    const j = await r.json();
+    return j.result ?? null;
+  } catch { return null; }
+}
+
+async function redisSet(key, value) {
+  if (!REDIS_URL) return;
+  try {
+    await fetch(`${REDIS_URL}/set/${key}`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${REDIS_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(value),
+    });
+  } catch {}
+}
+
+// Fire-and-forget — routes stay synchronous, no await needed anywhere
 function save() {
-  writeFileSync(DB_PATH, JSON.stringify(state, null, 2));
+  const persisted = {
+    users: state.users,
+    checkins: state.checkins,
+    submissions: state.submissions,
+    availability: Object.fromEntries(state.courts.map(c => [c.id, c.availability])),
+  };
+  redisSet('nf-db', JSON.stringify(persisted)).catch(() => {});
 }
 
 function computeFree(court) {
@@ -25,23 +55,33 @@ function computeFree(court) {
   return true;
 }
 
-export function initDb() {
-  if (existsSync(DB_PATH)) {
-    state = JSON.parse(readFileSync(DB_PATH, 'utf8'));
-    if (!state.users) state.users = [];
-    if (!state.checkins) state.checkins = [];
-    // Backfill free field if missing
-    state.courts = state.courts.map(c => ({ ...c, free: c.free ?? computeFree(c) }));
-    save();
-    console.log(`DB loaded: ${state.courts.length} courts, ${state.users.length} users`);
+// ── initDb is async — called once with await in index.js ──
+export async function initDb() {
+  // Always load court definitions fresh from courts.json
+  const raw = JSON.parse(readFileSync(COURTS_SRC, 'utf8'));
+  state.courts = raw.map(c => ({ ...c, free: computeFree(c) }));
+
+  // Restore user data from Upstash
+  const saved = await redisGet('nf-db');
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      state.users = parsed.users || [];
+      state.checkins = parsed.checkins || [];
+      state.submissions = parsed.submissions || [];
+      // Restore availability overrides without overwriting court definitions
+      if (parsed.availability) {
+        state.courts = state.courts.map(c => ({
+          ...c,
+          availability: parsed.availability[c.id] ?? c.availability,
+        }));
+      }
+      console.log(`DB loaded from Redis: ${state.users.length} users, ${state.checkins.length} checkins`);
+    } catch {
+      console.log('DB: Redis data corrupt, starting fresh');
+    }
   } else {
-    const raw = JSON.parse(readFileSync(COURTS_SRC, 'utf8'));
-    state.courts = raw.map(c => ({ ...c, free: computeFree(c) }));
-    state.submissions = [];
-    state.users = [];
-    state.checkins = [];
-    save();
-    console.log(`DB seeded with ${state.courts.length} courts`);
+    console.log(`DB seeded fresh: ${state.courts.length} courts`);
   }
 }
 
@@ -70,7 +110,6 @@ export function findUserById(id) {
 
 // ── Check-ins ──
 export function createCheckin(checkin) {
-  // End any existing active check-in for this user
   endUserCheckins(checkin.user_id);
   const record = {
     id: Date.now(),

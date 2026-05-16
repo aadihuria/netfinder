@@ -19,7 +19,7 @@ const isProd = process.env.NODE_ENV === 'production';
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-initDb();
+await initDb();
 
 // API routes
 app.use('/api/auth', authRouter);
