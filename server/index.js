@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const isProd = process.env.NODE_ENV === 'production';
 
-app.use(cors({ origin: isProd ? '*' : ['http://localhost:5173', 'http://localhost:4173'] }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 initDb();
