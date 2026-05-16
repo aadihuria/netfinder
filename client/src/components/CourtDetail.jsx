@@ -204,6 +204,24 @@ export default function CourtDetail({ court, onClose, onAvailUpdate, isMobile, c
                 Directions ↗
               </a>
             </div>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <a
+                className="btn btn-ghost"
+                href={`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${court.lat},${court.lng}`}
+                target="_blank" rel="noreferrer"
+                style={{ flex: 1, textAlign: 'center', textDecoration: 'none' }}
+              >
+                🔭 Street View
+              </a>
+              <a
+                className="btn btn-ghost"
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(court.name + ' ' + court.address)}`}
+                target="_blank" rel="noreferrer"
+                style={{ flex: 1, textAlign: 'center', textDecoration: 'none' }}
+              >
+                📸 Photos
+              </a>
+            </div>
           </div>
         </div>
       </div>

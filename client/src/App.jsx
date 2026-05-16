@@ -25,7 +25,7 @@ export default function App() {
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [courts, setCourts] = useState([]);
   const [selectedCourt, setSelectedCourt] = useState(null);
-  const [heatmapMode, setHeatmapMode] = useState(false);
+  const [satelliteMode, setSatelliteMode] = useState(false);
   const [sheetCollapsed, setSheetCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const [currentCheckin, setCurrentCheckin] = useState(null);
@@ -91,7 +91,6 @@ export default function App() {
     clearTimeout(logoClickTimer.current);
     if (logoClickCount.current >= 3) {
       logoClickCount.current = 0;
-      setHeatmapMode(m => !m);
     } else {
       logoClickTimer.current = setTimeout(() => { logoClickCount.current = 0; }, 800);
     }
@@ -111,7 +110,7 @@ export default function App() {
   return (
     <div className="app">
       <Map courts={filtered} selectedCourt={selectedCourt} onSelectCourt={handleSelectCourt}
-        userLocation={location} heatmapMode={heatmapMode} />
+        userLocation={location} satelliteMode={satelliteMode} />
 
       {/* ── Header ── */}
       <header className="header">
@@ -143,6 +142,7 @@ export default function App() {
         {isMobile && (
           <div className="mobile-sheet-handle" onClick={() => setSheetCollapsed(c => !c)}>
             <div className="handle-bar" />
+            <span className="handle-count">{filtered.length} courts · tap to {sheetCollapsed ? 'expand' : 'collapse'}</span>
           </div>
         )}
         {isMobile && (
@@ -227,8 +227,11 @@ export default function App() {
           style={locLoading ? { borderColor: 'var(--blue)', color: 'var(--blue)' } : {}}>
           {locLoading ? '⌛' : '📍'}
         </button>
-        <button className="map-btn" title="Heatmap mode" onClick={() => setHeatmapMode(m => !m)}
-          style={heatmapMode ? { borderColor: 'var(--amber)', color: 'var(--amber)' } : {}}>🔥</button>
+        <button className="map-btn" title="Satellite view"
+          onClick={() => setSatelliteMode(m => !m)}
+          style={satelliteMode ? { borderColor: 'var(--amber)', color: 'var(--amber)', background: 'rgba(255,184,0,0.12)' } : {}}>
+          🛰
+        </button>
       </div>
 
       {/* ── Court Detail ── */}
