@@ -1,0 +1,68 @@
+Canton:
+    Tennis Courts:
+        Name: Griffin Park
+        Image:
+        Address: Griffin Park E, Canton Township, MI 48187
+            See More:
+                No. of courts: 4
+                Court type: Outdoor hard courts
+                Hours of operation: Monday - Sunday: 24/7 
+                Public: Yes
+                Lights: No
+                Busyness - morning (8am - 11am) 20%, afternoon (12pm - 4 pm) 50%, evening (5pm - 9pm) 80%
+        
+        Name: The Hamlet Garden Tennis Courts
+        Image:
+        Address: 1873 Chateau Rd, Canton, MI 48188
+            See More:
+                No. of courts: 2
+                Court type: Outdoor hard courts
+                Hours of operation: Monday - Sunday: 24/7
+                Public: Yes
+                Lights: No
+                Busyness - morning (8am - 11am), afternoon (12pm - 4 pm), evening (5pm - 9pm)
+
+        Name: Flodin Park
+        Image:
+        Address: 43399 Saltz Rd, Canton, MI 48187
+            See More:
+                No. of courts: 2
+                Court type: Outdoor hard courts
+                Hours of operation: Monday - Sunday: 8AM - 10PM
+                Public: Yes
+                Lights: No
+                Busyness - morning (8am - 11am), afternoon (12pm - 4 pm), evening (5pm - 9pm)
+            
+        Name: PCEP Tennis Courts
+        Image: 
+        Address: 46463-46655 Joy Rd, Plymouth, MI 48170
+            See More:
+                No. of courts: 24
+                Court type: Outdoor hard courts
+                Hours of operation: Currently Closed - under maintenence 
+                Public: Yes
+                Lights: No
+                Busyness - morning (8am - 11am), afternoon (12pm - 4 pm), evening (5pm - 9pm)
+
+        Name: Discovery Middle School Tennis Courts
+        Image: 
+        Address: 45083 Hanford Rd, Canton, MI 48187
+            See More:
+                No. of courts: 4
+                Court type: Outdoor hard courts
+                Hours of operation: Monday - Sunday: 24/7
+                Public: Yes
+                Lights: No
+                Busyness - morning (8am - 11am), afternoon (12pm - 4 pm), evening (5pm - 9pm)
+
+        Name: Central Park Tennis Courts
+        Image: 
+        Address: 48383 Central Park Blvd, Canton, MI 48187
+            See More:
+                No. of courts: 1
+                Court type: Outdoor hard courts
+                Hours of operation: Monday - Sunday: 24/7
+                Public: No
+                Lights: No
+                Busyness - morning (8am - 11am), afternoon (12pm - 4 pm), evening (5pm - 9pm)
+ff

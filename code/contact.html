@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Net Finder</title>
+
+  <!-- Open Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Our styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar container">
+      <h1 class="logo">The Net Finder</h1>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courts.html">Courts</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- #CONTACT -->
+  <article class="contact" data-page="contact">
+    <header>
+      <h2 class="h2 article-title">Contact</h2>
+    </header>
+
+    <section class="mapbox" data-mapbox>
+      <figure>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29477.057717473774!2d-83.51201599999999!3d42.307655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883b7e78fa6f2361%3A0x2c7f69a6bb14a282!2sCanton%20Public%20Library%2C%201200%20S%20Canton%20Center%20Rd%2C%20Canton%2C%20MI%2048188%2C%20USA!5e0!3m2!1sen!2sus!4v1715121572702!5m2!1sen!2sus"
+          width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </figure>
+    </section>
+
+    <section class="contact-form">
+      <h3 class="h3 form-title">Contact Form</h3>
+
+      <form id="contact-form" class="form">
+        <div class="input-wrapper">
+          <input type="text" name="fullname" class="form-input" placeholder="Full name" required />
+          <input type="email" name="email" class="form-input" placeholder="Email address" required />
+        </div>
+
+        <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
+
+        <button class="form-btn" type="submit">
+          <ion-icon name="paper-plane"></ion-icon>
+          <span>Send Message</span>
+        </button>
+      </form>
+    </section>
+  </article>
+
+  <!-- EmailJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("YOUR_USER_ID"); // Replace with your actual EmailJS Public Key
+  })();
+</script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_icrl3un', 'template_fgllm24', this) // Replace with actual template ID
+      .then(() => {
+        alert('Message sent successfully!');
+        this.reset();
+      }, (error) => {
+        alert('Failed to send message. Error: ' + error.text);
+      });
+  });
+</script>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 The Net Finder. All rights reserved.</p>
+  </footer>
+
+
+</body>
+</html>

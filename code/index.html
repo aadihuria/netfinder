@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Net Finder</title>
+
+  <!-- Open Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">The Net Finder</h1>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="courts.html">Courts</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" style="background: url('courts.png') center/cover no-repeat; border: 10px solid #001f5c; border-radius: 10px; padding: 100px 20px; color: white; text-align: center;">
+  <h2>Welcome To The Net Finder</h2>
+  <p>Discover local courts and connect with players near you.</p>
+  <button id="learn-more-btn">Learn More</button>
+</section>
+
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature">
+        <h3>Locate Courts</h3>
+        <p>Search for tennis and pickleball courts in your area.</p>
+      </div>
+      <div class="feature">
+        <h3>Connect with Players</h3>
+        <p>Join a community of sports enthusiasts and schedule matches.</p>
+      </div>
+      <div class="feature">
+        <h3>Stay Updated</h3>
+        <p>Get the latest news and updates about local tournaments.</p>
+      </div>
+    </section>
+
+    <section class="slideshow">
+  <div class="slide active" data-court="Griffin Park">
+    <img src="griffin.jpg" alt="Griffin Park">
+    <div class="caption">
+      <h3>Griffin Park</h3>
+      <button class="learn-more-btn" data-court="Griffin Park">Learn More</button>
+    </div>
+  </div>
+  <div class="slide" data-court="The Hamlet Garden Tennis Courts">
+    <img src="images/hamlet.jpg" alt="The Hamlet Garden">
+    <div class="caption">
+      <h3>Hamlet Garden</h3>
+      <button class="learn-more-btn" data-court="The Hamlet Garden Tennis Courts">Learn More</button>
+    </div>
+  </div>
+  <!-- Add more slides as needed -->
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 The Net Finder. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

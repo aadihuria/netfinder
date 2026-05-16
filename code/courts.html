@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courts | The Net Finder</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar container">
+      <h1 class="logo">The Net Finder</h1>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courts.html" class="active">Courts</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- MAIN COURTS SECTION -->
+<main class="container">
+
+  <!-- Toggle Buttons -->
+  <div class="court-toggle">
+    <button id="tennisBtn" class="active">🎾 Tennis Courts</button>
+    <button id="pickleballBtn">🏓 Pickleball Courts</button>
+  </div>
+
+  <!-- Tennis Courts Section -->
+  <section id="tennisSection" class="court-section active">
+    <div class="court-grid">
+      
+      <!-- Court Card 1 -->
+      <section class="court-card">
+        <h2>Griffin Park</h2>
+        <p class="location">Griffin Park E, Canton Township, MI 48187</p>
+        <button class="see-more-btn">See More</button>
+        <div class="see-more-content" style="display: none;">
+          <p><strong>No. of courts:</strong> 4</p>
+          <p><strong>Court type:</strong> Outdoor hard courts</p>
+          <p><strong>Hours of operation:</strong> Monday - Sunday: 24/7</p>
+          <p><strong>Public:</strong> Yes</p>
+          <p><strong>Lights:</strong> No</p>
+          <div class="pt-header">
+            <span>Popular times</span>
+            <select class="pt-day-select">
+              <option value="mon">Mon</option>
+              <option value="tue">Tue</option>
+              <option value="wed" selected>Wed</option>
+              <option value="thu">Thu</option>
+              <option value="fri">Fri</option>
+              <option value="sat">Sat</option>
+              <option value="sun">Sun</option>
+            </select>
+          </div>
+          <canvas id="pt-canton" width="300" height="80"></canvas>
+        </div>
+      </section>
+
+      <!-- Court Card 2 -->
+      <section class="court-card">
+        <h2>The Hamlet Garden Tennis Courts</h2>
+        <p class="location">1873 Chateau Rd, Canton, MI 48188</p>
+        <button class="see-more-btn">See More</button>
+        <div class="see-more-content" style="display: none;">
+          <p><strong>No. of courts:</strong> 2</p>
+          <p><strong>Court type:</strong> Outdoor hard courts</p>
+          <p><strong>Hours of operation:</strong> Monday - Sunday: 24/7</p>
+          <p><strong>Public:</strong> Yes</p>
+          <p><strong>Lights:</strong> No</p>
+          <div class="pt-header">
+            <span>Popular times</span>
+            <select class="pt-day-select">
+              <option value="mon">Mon</option>
+              <option value="tue">Tue</option>
+              <option value="wed" selected>Wed</option>
+              <option value="thu">Thu</option>
+              <option value="fri">Fri</option>
+              <option value="sat">Sat</option>
+              <option value="sun">Sun</option>
+            </select>
+          </div>
+          <canvas id="pt-canton" width="300" height="80"></canvas>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+      <section class="court-card">
+        <h2>Flodin Park</h2>
+        <p class="location">43399 Saltz Rd, Canton, MI 48187</p>
+        <button class="see-more-btn">See More</button>
+        <div class="see-more-content" style="display: none;">
+          <p><strong>No. of courts:</strong> 2</p>
+          <p><strong>Court type:</strong> Outdoor hard courts</p>
+          <p><strong>Hours of operation:</strong> Monday - Sunday: 8AM - 10PM</p>
+          <p><strong>Public:</strong> Yes</p>
+          <p><strong>Lights:</strong> No</p>
+        </div>
+      </section>
+
+      <section class="court-card">
+        <h2>PCEP Tennis Courts</h2>
+        <p class="location">46463-46655 Joy Rd, Plymouth, MI 48170</p>
+        <button class="see-more-btn">See More</button>
+        <div class="see-more-content" style="display: none;">
+          <p><strong>No. of courts:</strong> 24</p>
+          <p><strong>Court type:</strong> Outdoor hard courts</p>
+          <p><strong>Hours of operation:</strong> Currently Closed - under maintenance</p>
+          <p><strong>Public:</strong> Yes</p>
+          <p><strong>Lights:</strong> No</p>
+        </div>
+      </section>
+
+      <section class="court-card">
+        <h2>Discovery Middle School Tennis Courts</h2>
+        <p class="location">45083 Hanford Rd, Canton, MI 48187</p>
+        <button class="see-more-btn">See More</button>
+        <div class="see-more-content" style="display: none;">
+          <p><strong>No. of courts:</strong> 4</p>
+          <p><strong>Court type:</strong> Outdoor hard courts</p>
+          <p><strong>Hours of operation:</strong> Monday - Sunday: 24/7</p>
+          <p><strong>Public:</strong> Yes</p>
+          <p><strong>Lights:</strong> No</p>
+        </div>
+      </section>
+
+      <section class="court-card">
+        <h2>Central Park Tennis Courts</h2>
+        <p class="location">48383 Central Park Blvd, Canton, MI 48187</p>
+        <button class="see-more-btn">See More</button>
+        <div class="see-more-content" style="display: none;">
+          <p><strong>No. of courts:</strong> 1</p>
+          <p><strong>Court type:</strong> Outdoor hard courts</p>
+          <p><strong>Hours of operation:</strong> Monday - Sunday: 24/7</p>
+          <p><strong>Public:</strong> No</p>
+          <p><strong>Lights:</strong> No</p>
+      </div>
+    </section>
+
+<!-- Pickleball Courts Section -->
+    <section id="pickleballSection" class="court-section active">
+      <section class="court-card">
+        <h2>Central Park Tennis Courts</h2>
+        <p class="location">48383 Central Park Blvd, Canton, MI 48187</p>
+        <button class="see-more-btn">See More</button>
+        <div class="see-more-content" style="display: none;">
+          <p><strong>No. of courts:</strong> 1</p>
+          <p><strong>Court type:</strong> Outdoor hard courts</p>
+          <p><strong>Hours of operation:</strong> Monday - Sunday: 24/7</p>
+          <p><strong>Public:</strong> No</p>
+          <p><strong>Lights:</strong> No</p>
+          <div class="pt-header">
+          <span>Popular times</span>
+          <select class="pt-day-select">
+          <option value="mon">Mon</option>
+          <option value="tue">Tue</option>
+          <option value="wed" selected>Wed</option>
+          <option value="thu">Thu</option>
+          <option value="fri">Fri</option>
+          <option value="sat">Sat</option>
+          <option value="sun">Sun</option>
+        </select>
+    </div>
+    <canvas id="pt-canton" width="300" height="80"></canvas>
+  </div>
+      </div>
+      </section>
+
+      <section class="court-card">
+        <h2>Northville Community Center</h2>
+        <p class="location">101 Main St, Northville, MI</p>
+        <div class="popular-times">
+        <div class="pt-header">
+          <span>Popular times</span>
+          <select class="pt-day-select">
+          <option value="mon">Mon</option>
+          <option value="tue">Tue</option>
+          <option value="wed" selected>Wed</option>
+          <option value="thu">Thu</option>
+          <option value="fri">Fri</option>
+          <option value="sat">Sat</option>
+          <option value="sun">Sun</option>
+        </select>
+    </div>
+    <canvas id="pt-canton" width="300" height="80"></canvas>
+  </div>
+      </section>
+    </section>
+  </main>
+
+ <!-- JavaScript for See More Toggle -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".see-more-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const content = button.parentElement.querySelector(".see-more-content");
+        const isVisible = content.style.display === "block";
+        content.style.display = isVisible ? "none" : "block";
+        button.textContent = isVisible ? "See More" : "See Less";
+      });
+    });
+  });
+</script>
+
+  <!-- Toggle Court Sections -->
+  <script>
+    const tennisBtn = document.getElementById("tennisBtn");
+    const pickleballBtn = document.getElementById("pickleballBtn");
+    const tennisSection = document.getElementById("tennisSection");
+    const pickleballSection = document.getElementById("pickleballSection");
+
+    tennisBtn.addEventListener("click", () => {
+      tennisSection.classList.add("active");
+      pickleballSection.classList.remove("active");
+      tennisBtn.classList.add("active");
+      pickleballBtn.classList.remove("active");
+    });
+
+    pickleballBtn.addEventListener("click", () => {
+      pickleballSection.classList.add("active");
+      tennisSection.classList.remove("active");
+      pickleballBtn.classList.add("active");
+      tennisBtn.classList.remove("active");
+    });
+  </script>
+  <!-- Slideshow js-->
+  <script>
+    const targetCourt = localStorage.getItem('courtToShow');
+if (targetCourt) {
+  const courtCards = document.querySelectorAll('.court-card');
+  courtCards.forEach(card => {
+    const title = card.querySelector('h2');
+    if (title && title.textContent.trim() === targetCourt) {
+      const btn = card.querySelector('.see-more-btn');
+      if (btn) btn.click(); // Simulate click
+      card.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+  localStorage.removeItem('courtToShow');
+}
+  </script>
+
+  <!-- Chart.js for Popular Times -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const hourLabels = Array.from({ length: 24 }, (_, i) => {
+      const hour = i % 12 === 0 ? 12 : i % 12;
+      const suffix = i < 12 ? 'AM' : 'PM';
+      return `${hour}${suffix}`;
+    });
+
+    const popularTimesData = {
+      mon: [15, 10, 5, 5, 5, 10, 20, 30, 40, 50, 60, 65, 70, 75, 80, 70, 60, 50, 40, 30, 25, 20, 15, 10],
+      tue: [10, 10, 10, 10, 10, 10, 15, 20, 25, 35, 45, 55, 60, 70, 65, 60, 55, 45, 40, 30, 20, 15, 10, 5],
+      wed: [35, 30, 25, 25, 20, 15, 10, 20, 30, 40, 50, 60, 70, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30],
+      thu: [25, 20, 15, 10, 10, 15, 20, 25, 35, 45, 55, 60, 65, 70, 65, 60, 55, 45, 35, 25, 20, 15, 10, 5],
+      fri: [10, 10, 10, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 85, 80, 70, 60, 50, 40, 30, 20, 10, 5, 0],
+      sat: [20, 25, 30, 30, 25, 20, 15, 20, 30, 40, 50, 60, 70, 85, 80, 75, 70, 60, 55, 50, 40, 30, 20, 10],
+      sun: [30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5]
+    };
+
+    function initPopularTimes(canvasId, dayKey) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      if (ctx.chart) ctx.chart.destroy();
+      ctx.chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: hourLabels,
+          datasets: [{
+            data: popularTimesData[dayKey],
+            backgroundColor: '#007ACC',
+            maxBarThickness: 10
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { autoSkip: true, maxTicksLimit: 12, maxRotation: 0 }
+            },
+            y: { display: false, min: 0, max: 100 }
+          },
+          plugins: { legend: { display: false }, tooltip: { enabled: false } }
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.pt-day-select').forEach(select => {
+        const canvasId = select.dataset.canvas;
+        initPopularTimes(canvasId, select.value);
+        select.addEventListener('change', e => {
+          initPopularTimes(canvasId, e.target.value);
+        });
+      });
+    });
+  </script>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 The Net Finder. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+node_modules/
+client/node_modules/
+server/node_modules/
+client/dist/
+server/db.json
+server/netfinder.db
+.env
+client/.env
+*.local
+.claude
